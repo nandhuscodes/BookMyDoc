@@ -1,0 +1,106 @@
+[
+  {
+    "input": [
+      "hi",
+      "hey",
+      "hello",
+      "hi there",
+      "hey there",
+      "hello there"
+    ],
+    "output": {
+      "message": "Hello! How can I assist you?"
+    }
+  },
+  {
+    "input": [
+      "book appointment",
+      "schedule appointment",
+      "fix appointment",
+      "I want to fix an appointment",
+      "I want to fix appointment",
+      "I want to book an appointment",
+      "I want to book appointment",
+      "I want to schedule an appointment",
+      "I want to schedule appointment"
+    ],
+    "output": {
+      "message": "Sure, which department do you need an appointment with?"
+    }
+  },
+  {
+    "input": [
+      "thank you",
+      "thanks",
+      "thanks a lot"
+    ],
+    "output": {
+      "message": "You're welcome. Have a great day!"
+    }
+  },
+  {
+    "input": [
+      "bye",
+      "goodbye",
+      "see you later",
+      "bye bye"
+    ],
+    "output": {
+      "message": "Goodbye. Have a nice day!"
+    }
+  },
+  {
+    "input": [
+      "what is your name",
+      "who are you",
+      "what's your name",
+      "name"
+    ],
+    "output": {
+      "message": "My name is BookMyDoc. How may I assist you?"
+    }
+  },
+  {
+    "input": [
+      "cancel appointment",
+      "I want to cancel an appointment",
+      "I want to cancel appointment",
+      "delete appointment",
+      "I want to delete an appointment",
+      "I want to delete appointment"
+    ],
+    "output": {
+      "message": "Sure, please provide your appointment details."
+    }
+  },
+  {
+    "input":[
+      "reschedule appointment",
+      "change appointment",
+      "update appointment"
+    ],"output":{
+      "message":"Sure, please provide your appointment details to update it."
+    }
+  },
+  {
+    "input": [
+      "emergency",
+      "urgent",
+      "critical",
+      "serious"
+    ],
+    "output": {
+      "message": "If you have an emergency or urgent medical issue, please call 108 or visit the nearest emergency room."
+    }
+  },
+  {
+    "input": [
+      "thanks for help",
+      "thank you for help",
+      "thank you for your help"
+    ],
+    "output": {
+      "message": "You're welcome. It was my pleasure to help."
+    }
+  }
+]
