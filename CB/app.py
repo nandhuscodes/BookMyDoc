@@ -161,9 +161,9 @@ def book_appointment():
     if appointment_conflict:
         return jsonify({'message': 'Appointment slot not available'})
     db.slots.insert_one({'doctor': doctor,'datetime': datetime, 'status': status, 'patient': patient})
-    account_sid = "ACb392c9df89e1d1ae223dfd7acc428084"
-    auth_token = "66974a5bb8fd2dd34ad7cc39f2277d1d"
-    twilio_phone_number = "+16073177304"
+    account_sid = "Your_sid"
+    auth_token = "your_token"
+    twilio_phone_number = "your number"
     client = Client(account_sid, auth_token)
     patient = mongo.db.users.find_one({'email': patient})
     patient_phone_number = patient['phone']
