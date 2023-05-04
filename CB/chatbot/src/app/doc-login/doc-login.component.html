@@ -1,0 +1,44 @@
+<!-- Start Landing Page -->
+
+<div class="landing-page">
+    <div class="container">
+      <div class="header-area">
+        <div class="logo" src="">
+          <img src="assets/medicine.png" style="width: 28px;height: 28px;">
+          <span style="text-decoration: none;"><a href="" style="color: #4c047c;"><b>Book<span style="color:#ebbb14">My</span>Doc</b></a></span>
+        </div>
+      </div>
+      <div class="image">
+        <img src="assets/Doctors.gif">
+      </div>
+      <!-- Start Login Form -->
+  <div class="login-form">
+    <form (ngSubmit)="onSubmit()">
+      <h1 style="margin-left: 80px;">Doctor Login</h1>
+      <div class="form-group">
+        <label for="name" class="form">Name:</label>
+        <input type="name" class="form-control" id="name" name="name" [(ngModel)]="name" placeholder="Enter name">
+      </div>
+      <div class="form-group">
+        <label for="pwd" class="form">Password:</label>
+        <div class="input-group">
+          <input name="password" type="{{passwordType}}" name="password" [(ngModel)]="password" class="form-control" placeholder="Password" style="width: 120px;">
+          <span style="margin:18px;" (click)="togglePassword()">
+            <img src="assets/monk_cl.png" style="width: 25px;height: 25px;" *ngIf="passwordType === 'password'" />
+            <img src="assets/monk_op.png" style="width: 25px;height: 25px;" *ngIf="passwordType === 'text'" />
+          </span>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+      <div class="signup-link">
+        New Joinee? <a href="/admin">Register</a>
+      </div>
+    </form>
+  </div>
+  <!-- End Login Form -->
+    </div>
+  </div>
+  
+  <!-- End Landing Page -->
+  
+  

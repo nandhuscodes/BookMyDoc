@@ -1,0 +1,44 @@
+<!-- Start Landing Page -->
+
+<div class="landing-page">
+  <div class="container">
+    <div class="header-area">
+      <div class="logo" src="">
+        <img src="assets/medicine.png" style="width: 28px;height: 28px;">
+        <span style="text-decoration: none;"><a href="" style="color: #4c047c;"><b>Book<span style="color:#ebbb14">My</span>Doc</b></a></span>
+      </div>
+    </div>
+    <div class="image">
+      <img src="assets/log_vector.gif">
+    </div>
+    <!-- Start Login Form -->
+<div class="login-form">
+  <form (ngSubmit)="onSubmit()">
+    <div *ngIf="errorMessage!=''" style="color: #ebbb14;font-size: 30px;">{{errorMessage}}</div>
+    <h1 style="margin-left: 80px;">Patient Login</h1>
+    <div class="form-group">
+      <label for="email" class="form">Email address:</label>
+      <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" placeholder="Enter email" required>
+    </div>
+    <div class="form-group">
+      <label for="pwd" class="form">Password:</label>
+      <div class="input-group">
+        <input name="password" type="{{passwordType}}" name="password" [(ngModel)]="password" class="form-control" placeholder="Password" style="width: 120px;" required>
+        <span style="margin:18px;" (click)="togglePassword()">
+          <img src="assets/monk_cl.png" style="width: 25px;height: 25px;" *ngIf="passwordType === 'password'" />
+          <img src="assets/monk_op.png" style="width: 25px;height: 25px;" *ngIf="passwordType === 'text'" />
+        </span>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+    <div class="signup-link">
+      New member? <a href="/patient-signup">Sign up</a>
+    </div>
+  </form>
+</div>
+<!-- End Login Form -->
+  </div>
+</div>
+
+<!-- End Landing Page -->
+

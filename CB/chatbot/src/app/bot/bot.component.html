@@ -1,0 +1,135 @@
+<div class="landing-page">
+    <div class="container">
+      <div class="header-area">
+        <div class="logo" src="">
+          <img src="assets/medicine.png" style="width: 28px;height: 28px;">
+          <span style="text-decoration: none;"><a href="" style="color: #4c047c;"><b>Book<span style="color:#ebbb14">My</span>Doc</b></a></span>
+        </div>
+        <ul class="links">
+          <li (click)="Logout()" class="doc" style="font-size: 18px;">Logout</li>
+        </ul>
+      </div>
+      <div class="username" style="color: #4c047c;float: right;">
+        Welcome,<span style="color: #ebbb14;"> {{ email }}</span>
+      </div>
+    </div>
+    <div class="chatbot-section">
+        <div class="container">
+          <div class="chat-container">
+            
+        <div class="message" *ngFor="let message of messages">
+          <div *ngIf="message.type === 'user'" class="user-message" style="float: right;">{{ message.text }}</div>
+          <br>
+          <div *ngIf="message.type === 'bot'" class="bot-message" style="float: left;">{{ message.text }}</div>
+          <br>
+          <div *ngIf="message.type==='bot' && message.text==='Sure, which department do you need an appointment with?'">
+            <div *ngIf="!selectedDepartment">
+              <div *ngFor="let department of departments" class="form-group" style="width: fit-content;">
+                <button class="button" (click)="selectDepartment(department)">{{ department }}</button>
+              </div>
+            </div>
+            <div *ngIf="selectedDepartment">
+              <br><div class="selected-department user-message">{{ selectedDepartment }}</div><br>
+              <div class="bot-message">Which doctor do you need an appointment with?</div><br>
+            </div>    
+            <div *ngIf="selectedDepartment && !selectedDoctor">
+              <div *ngFor="let doctor of doctors">
+                <button class="button" (click)="selectDoctor(doctor)">{{ doctor }}</button>
+              </div>
+            </div>
+            <div *ngIf="selectedDoctor">
+              <br><div class="selected-doctor user-message">{{ selectedDoctor }}</div><br>
+            </div>                        
+            <div *ngIf="selectedDoctor">
+              <br>
+              <div class="bot-message">Which time you want an appointment?</div><br>
+            </div> 
+              <div *ngIf="selectedDepartment">
+                <div *ngIf="selectedDoctor && msg!=='Appointment booked'" class="input-container">
+                  <div>
+                    <label for="date">Select a date:</label>
+                    <input type="date" id="date" [(ngModel)]="selectedDate">
+                  </div>
+                  <div>
+                    <label for="time">Select a time:</label>
+                    <input type="time" id="time" [(ngModel)]="selectedTime">
+                  </div>
+                  <button class="button" (click)="bookAppointment()">Book Appointment</button>
+                </div>
+                <div *ngIf="msg==='Appointment booked'" class="bot-message">
+                  <h1 style="color: #ebbb14;">{{this.msg}}</h1>
+                  <h3> Details about appointment</h3>
+                  <hr>
+                  Doctor:{{doc}} <br>
+                  Time:{{slot}}
+                </div>
+                <br><div *ngIf="msg==='Appointment slot not available'" class="bot-message">
+                <h4 style="color: #f6ebc3;">{{this.msg}}</h4>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="message.type==='bot' && message.text==='Sure, please provide your appointment details to update it.'">
+              <br>
+              <div *ngIf="!selectedDatetime">
+                <div *ngFor="let datetime of datetimeList" class="input-container">
+                  <button class="button" (click)="selectDatetime(datetime)">{{ datetime }}</button>
+                </div>
+              </div>
+              <div *ngIf="selectedDatetime">
+                <br><div class="selected-datetime user-message">{{ selectedDatetime }}</div><br>
+              </div>
+              <div *ngIf="selectedDatetime && msg!=='Appointment rescheduled'">
+                <div class="input-container">
+                <div>
+                  <label for="date">Select a date:</label>
+                  <input type="date" id="date" [(ngModel)]="selectedDate">
+                </div>
+                <div>
+                  <label for="time">Select a time:</label>
+                  <input type="time" id="time" [(ngModel)]="selectedTime">
+                </div>
+                <button class="button" (click)="updateAppointment()">reschedule Appointment</button>
+              </div>
+              </div>
+              <br><br><div *ngIf="msg==='Appointment rescheduled'" class="user-message">{{this.slot}}</div><br>
+              <br><div *ngIf="msg==='Appointment rescheduled'" class="bot-message">
+                <h1 style="color: #ebbb14;">{{ msg }}</h1>
+                <h3>Details about appointment</h3>
+                <hr>
+                <span style="color: #ebbb14;"> Doctor: </span>{{ doc }} <br>
+                <span style="color: #ebbb14;"> Date and Time: </span>{{ slot }} <br>
+              </div>                                        
+            </div>
+            <div *ngIf="message.type==='bot' && message.text==='Sure, please provide your appointment details.'">
+              <br>
+              <div *ngIf="!selectedDatetimes">
+                <div *ngFor="let datetime of datetimeList" class="input-container">
+                  <button class="button" (click)="selectDatetimes(datetime)">{{ datetime }}</button>
+                </div>
+              </div>
+              <div *ngIf="selectedDatetimes">
+                <br><div class="selected-datetime user-message">{{ selectedDatetimes }}</div><br>
+              </div>
+              <div *ngIf="selectedDatetimes && msg!=='Appointment cancelled'">
+                <div class="input-container">
+                <button class="button" (click)="deleteAppointment()">Cancel Appointment</button>
+              </div>
+              </div>
+              <br><br><div *ngIf="msg==='Appointment cancelled'" class="user-message">{{this.slot}}</div><br>
+              <br><div *ngIf="msg==='Appointment cancelled'" class="bot-message">
+                <h1 style="color: #ebbb14;">{{ msg }}</h1>
+                <h3>Details about appointment</h3>
+                <hr>
+                <span style="color: #ebbb14;"> Doctor: </span>{{ doc }} <br>
+                <span style="color: #ebbb14;"> Date and Time: </span>{{ slot }} <br>
+              </div>                                        
+            </div>
+        </div>
+      </div>
+      <div class="input-container">
+        <input type="text" placeholder="Type your message..." [(ngModel)]="userInput" (keydown.enter)="sendMessage()">
+        <button class="fas fa-paper-plane btn" (click)="sendMessage()"></button>
+      </div>
+        </div>
+      </div>
+  </div>

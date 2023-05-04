@@ -1,0 +1,69 @@
+<!-- Start Landing Page -->
+
+<div class="landing-page">
+    <div class="container">
+      <div class="header-area">
+        <div class="logo" src="">
+          <img src="assets/medicine.png" style="width: 28px;height: 28px;">
+          <span style="text-decoration: none;"><a href="" style="color: #4c047c;"><b>Book<span style="color:#ebbb14">My</span>Doc</b></a></span>
+        </div>
+        <div class="signup-link" style="float: left;">
+            Already a member? <a href="/doctor-login">Login</a>
+          </div>
+      </div>
+      <div class="image">
+        <img src="assets/new_joinee.gif">
+      </div>
+      <!-- Start Login Form -->
+  <div class="login-form">
+    <form (ngSubmit)="onSubmit()">
+      <div *ngIf="message!=''" style="color: #ebbb14;font-size: 30px;">{{message}}</div>
+      <h1 style="margin-left: 80px;">Doctor Signup</h1>
+      <div class="column">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" [(ngModel)]="username" class="form-control" required placeholder="Enter username">
+      </div>
+      <div class="form-group">
+        <label for="specialization">Specialization</label>
+	    <input type="text" id="specialization" name="dept" [(ngModel)]="dept" class="form-control" placeholder="Enter Dept" required>
+      </div>
+      </div>
+      <div class="form-group">
+        <label for="email" class="form">Email address:</label>
+        <input type="email" class="form-control" name="email" [(ngModel)]="email" id="email" placeholder="Enter email" required>
+      </div>
+      <div class="form-group">
+        <label for="pwd" class="form">Password:</label>
+        <div class="input-group">
+          <input name="password" type="{{passwordType}}" name="password" [(ngModel)]="password" class="form-control" placeholder="Password" style="width: 120px;" required>
+          <span style="margin:18px;" (click)="togglePassword()">
+            <img src="assets/monk_cl.png" style="width: 25px;height: 25px;" *ngIf="passwordType === 'password'" />
+            <img src="assets/monk_op.png" style="width: 25px;height: 25px;" *ngIf="passwordType === 'text'" />
+          </span>
+        </div>
+      </div>
+      <div class="column">
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" [(ngModel)]="phone" class="form-control" placeholder="Enter Phone number" required>
+      </div>
+      <div class="form-group">
+        <label for="hospital-name">Hospital Name</label>
+		<input type="text" id="hospital-name" name="hospital" [(ngModel)]="hospital" class="form-control" placeholder="Enter Hospital name" required>
+      </div>
+    </div>
+    <div class="form-group">
+			<label for="hospital-address">Hospital Address</label>
+			<textarea type="text" id="hospital-address" name="address" [(ngModel)]="address" class="form-control" placeholder="Enter Hospital address" required></textarea>
+    </div>
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+  </div>
+  <!-- End Login Form -->
+    </div>
+  </div>
+  
+  <!-- End Landing Page -->
+  
+  

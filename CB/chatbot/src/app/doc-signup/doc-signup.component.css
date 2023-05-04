@@ -1,0 +1,193 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .container {
+    width: 1170px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: auto;
+  }
+  
+  /* Start Landing Page */
+  
+  .landing-page {
+    position: relative;
+  }
+  
+  .landing-page .header-area {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 0 0;
+    position: relative;
+  }
+  
+  .landing-page .header-area .logo {
+    font-style: italic;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 25px;
+    width: 300px;
+    color: #4c047c;
+  }
+  
+  .landing-page .image {
+    width: 50%;
+    float: left;
+    margin-top: 35px;
+  }
+  
+  .landing-page .image img {
+    max-width: 100%;
+  }
+  
+  /* Define the animation */
+  @keyframes hang-letters {
+    from {
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Apply the animation to the logo div */
+  .logo {
+    animation-name: hang-letters;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+  }
+  
+  /* Style the individual
+  /* Style the individual letters */
+  .logo b {
+    display: inline-block;
+    transform: translateY(-10px);
+    opacity: 0;
+    animation-name: hang-letters;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    }
+    
+    /* Add a delay to each letter to create the hanging effect */
+    .logo b:nth-child(1) {
+    animation-delay: 0.8s;
+    }
+    .logo b:nth-child(2) {
+    animation-delay: 0.9s;
+    }
+    .logo b:nth-child(3) {
+    animation-delay: 0.10s;
+    }
+    .logo b:nth-child(4) {
+    animation-delay: 0.11s;
+    }
+    .logo b:nth-child(5) {
+    animation-delay: 0.12s;
+    }
+    .logo b:nth-child(6) {
+    animation-delay: 0.13s;
+    }
+    .image {
+    position: relative;
+    }
+    .image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-name: slide;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    }
+    
+    @keyframes slide {
+    0% {
+    transform: translateX(-100%);
+    }
+    100% {
+    transform: translateX(0);
+    }
+    }
+    
+    /* End Landing Page */
+    
+    .login-form {
+      float: right;
+      width: 500px;
+      margin-left: 50px auto;
+      background: #fff;
+      padding: 20px;
+      color: #4c047c;
+      }
+      .column{
+        display: flex;
+        column-gap: 8px;
+    }
+      .form-group {
+      margin-bottom: 20px;
+      }
+      
+      .form-control {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+      }
+      .form-control:focus{
+        box-shadow: 0 0 12px #4c047c;
+      }
+      
+      .forgot-password-link {
+      font-size: 14px;
+      text-decoration: none;
+      color: #4c047c;
+      }
+      .forgot-password-link:hover {
+        font-size: 14px;
+        text-decoration: none;
+        color: #ebbb14;
+        }
+      
+      .btn-primary {
+      background: #4c047c;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
+      border-radius: 25px;
+      cursor: pointer;
+      }
+  
+      .btn-primary:hover{
+        background: #ebbb14;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        border-radius: 25px;
+        cursor: pointer;
+      }
+      .signup-link {
+      margin-top: 20px;
+      font-size: 14px;
+      text-align: center;
+      }
+      
+      .signup-link a {
+      color: #4c047c;
+      font-weight: bold;
+      text-decoration: none;
+      }
+      .signup-link a:hover {
+        color: #ebbb14;
+        text-decoration: none;
+        }
